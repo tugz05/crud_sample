@@ -42,6 +42,23 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 - **[Redberry](https://redberry.international/laravel-development)**
 - **[Active Logic](https://activelogic.com)**
 
+## API & Sanctum
+
+Routes are defined in `routes/api.php` and are prefixed with `/api`.
+
+| Method | Endpoint | Auth |
+|--------|----------|------|
+| POST | `/api/register` | — |
+| POST | `/api/login` | — |
+| POST | `/api/logout` | Bearer token |
+| GET | `/api/user` | Bearer token |
+| GET | `/api/ping` | Bearer token |
+| POST | `/api/products` | Bearer token — JSON body: `name`, `price` |
+
+After login or register, send the token in the `Authorization` header: `Bearer {token}`.
+
+Run migrations so `personal_access_tokens` exists: `php artisan migrate`.
+
 ## Contributing
 
 Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
